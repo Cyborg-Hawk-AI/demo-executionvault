@@ -1,0 +1,102 @@
+{
+  "idea": {
+    "name": "ExecutionVault",
+    "fingerprint": "automation-execution-dead-letter-queue-inspection-saas",
+    "pitch": "Visual dead-letter queue and execution inspector for no-code automation failures.",
+    "cluster": "Automation execution reliability & retry logic",
+    "target_customer": "Automation engineers and technical founders running business-critical workflows on n8n or Make who need to inspect, debug, and replay failed executions without digging through logs or writing scripts.",
+    "core_features": [
+      "Capture failed/stuck executions via webhook from n8n, Make, or Zapier into a visual queue",
+      "Execution detail view: full payload, error message, step-by-step trace, and suggested fix (AI-generated)",
+      "One-click replay: re-trigger the exact failed execution with original payload",
+      "Failure pattern detection: 'This error has occurred 12 times in the last 7 days \u2014 here's the root cause'",
+      "Slack/email alert with direct link to the failed execution in the vault"
+    ],
+    "pricing_model": "Monthly SaaS subscription tiered by seats and execution volume",
+    "price_point": "$49/month for 1 user up to 5k captured executions; $99/month for teams",
+    "gtm_channel": "n8n community forum, r/n8n, r/automation, cold outreach to n8n self-hosters via GitHub, ProductHunt launch",
+    "competitive_landscape": "n8n's built-in execution log is read-only with no replay or pattern detection. Make has no dead-letter queue. Datadog/Sentry are overkill and not automation-platform-aware. No focused execution vault product exists.",
+    "unfair_advantage": "AI-generated 'suggested fix' for each failure type is a unique feature that turns a debugging tool into a teaching tool \u2014 users learn why their workflows fail, reducing future failures and increasing retention.",
+    "mvp_estimate": "Node.js + Supabase + OpenAI for fix suggestions + React dashboard; 3\u20134 weeks to MVP with n8n webhook integration",
+    "agentic_automation": "Execution capture is fully automated via inbound webhooks \u2014 no human involvement. AI fix suggestions are generated on-demand by GPT-4o when a user opens an execution detail. Pattern detection runs as a nightly cron. Stripe handles billing. Slack/email alerts fire automatically. Support is handled by an AI bot trained on common n8n/Make error patterns. Estimated owner time: 1.5 hours/week.",
+    "origin_story": "The r/automation thread surfaced a DevOps engineer who resorted to 'writing bash scripts to automatically restart stuck executions at night' \u2014 a clear sign that the native tooling (n8n's execution log) is insufficient for production use. The core frustration is not just that executions fail, but that when they do, there's no easy way to see why, replay them, or detect patterns. Engineers are spending hours debugging what should be a 5-minute inspection. The bash script workaround is a band-aid that doesn't address root cause analysis or provide a replay mechanism.",
+    "automation_playbook": "Webhook receivers capture failed executions 24/7 with no human involvement. GPT-4o generates fix suggestions lazily (only when a user views the execution) \u2014 no batch processing needed. A nightly cron scans for failure patterns and sends digest emails via Resend. Stripe manages all billing lifecycle events. A Crisp chat widget with a GPT-4o backend handles support questions about specific error messages. The only recurring manual task is reviewing weekly escalations. Estimated owner time: 1.5 hours/week.",
+    "maintenance_hours_per_week": 1.5,
+    "keywords": [
+      "n8n execution failed debug",
+      "automation workflow replay failed job",
+      "Make error log inspector"
+    ],
+    "supporting_urls": [
+      "https://www.reddit.com/r/automation/comments/1um2ul8/what_is_the_one_automation_tool_or_framework_in/"
+    ],
+    "weighted_total": 112,
+    "checklist": {
+      "ten_plus_posts_same_pain": true,
+      "paying_for_inferior_solution": true,
+      "reachable_channel": true,
+      "mvp_under_4_weeks": true,
+      "price_point_high_enough": true,
+      "hair_on_fire": true,
+      "can_presell": true,
+      "fewer_than_3_competitors": true,
+      "low_maintenance_ops": true
+    },
+    "checklist_passed": 9,
+    "momentum": "unknown",
+    "rising_queries": [],
+    "gate_result": "passed"
+  },
+  "pain_points": [
+    {
+      "problem": "Stuck automation executions need manual intervention or custom workarounds; users resort to writing bash scripts to restart failed jobs during off-hours instead of having built-in retry logic.",
+      "persona": "DevOps engineer / automation platform user",
+      "current_workaround": "Writing custom bash scripts to automatically restart stuck executions at night",
+      "frequency": "daily",
+      "wtp_signal": "Already paying for n8n and investing engineering time in custom scripts",
+      "url": "https://www.reddit.com/r/automation/comments/1um2ul8/what_is_the_one_automation_tool_or_framework_in/",
+      "engagement": 0,
+      "source": "reddit"
+    },
+    {
+      "problem": "Advanced scripting features in automation platforms are locked behind premium pricing tiers, forcing users to pay extra for basic execution capabilities.",
+      "persona": "Automation engineer / workflow builder",
+      "current_workaround": "Paying additional costs to GoAnywhere for script execution through agents",
+      "frequency": "unknown",
+      "wtp_signal": "Already spending money on GoAnywhere premium features",
+      "url": "https://www.reddit.com/r/automation/comments/1um2ul8/what_is_the_one_automation_tool_or_framework_in/",
+      "engagement": 0,
+      "source": "reddit"
+    },
+    {
+      "problem": "Orchestration layers in multi-agent systems create bottlenecks rather than improving efficiency, making complex agent setups counterproductive for small business tasks.",
+      "persona": "Small business owner / AI agent implementer",
+      "current_workaround": "Running multiple separate agents or avoiding orchestration layers entirely",
+      "frequency": "daily",
+      "wtp_signal": "Already invested in running AI agents for months across multiple businesses",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1u6xnri/been_running_my_businesses_on_ai_agents_for/",
+      "engagement": 0,
+      "source": "reddit"
+    },
+    {
+      "problem": "Small businesses need simple, specialized agents for specific tasks like lead follow-up and inbox management, but existing solutions require full agency setups with unnecessary complexity.",
+      "persona": "Small business owner",
+      "current_workaround": "Building or configuring partial agent setups or using non-AI automation",
+      "frequency": "daily",
+      "wtp_signal": "Already running businesses on AI agents and seeking cost-effective solutions",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1u6xnri/been_running_my_businesses_on_ai_agents_for/",
+      "engagement": 0,
+      "source": "reddit"
+    },
+    {
+      "problem": "Payment systems and online platforms officially block users from sanctioned countries, making it impossible for qualified IT professionals to access remote work opportunities and receive payments.",
+      "persona": "Software engineer / IT professional in Iran",
+      "current_workaround": "Seeking alternative platforms, payment methods, or workarounds; many unable to work",
+      "frequency": "unknown",
+      "wtp_signal": "High intent to work and earn; willing to pay for solutions that enable access",
+      "url": "https://freelancing.stackexchange.com/questions/11049/how-can-software-engineers-in-iran-find-remote-jobs-while-dealing-with-sanctions",
+      "engagement": 0,
+      "source": "stackexchange"
+    }
+  ]
+}
